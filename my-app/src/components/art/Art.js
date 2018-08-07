@@ -11,9 +11,16 @@ export class Art extends React.Component {
 
       this.state = {
           records: [],
-          query: this.props.onChange
+          query: '',
+          femaleCount: 0
       };
-      console.log(this.state.query);
+      console.log('the state of query is: ' + this.state.query);
+  }
+
+  updateSearch() {
+    // this.setState({ query: this.state.handleSubmit });
+    this.setState({ query: 'dance' });
+    console.log('update search term is' + this.props.handleSubmit)
   }
 
   componentWillMount(props){
@@ -34,6 +41,7 @@ export class Art extends React.Component {
     }).on("complete", function( data ) {
         console.log( ".on:" );
         console.dir( data );
+        console.log('this is caitlin: ' + data.records[0].people[0].gender);
         that.setState( { records: data.records } );
         // "that" is actually "this" at React scope
         // SAM: setState sets a variable in the React state element to some value.
@@ -42,6 +50,25 @@ export class Art extends React.Component {
         // SAM: according to React, we should only set state directly in the constructor
         // SAM: after that, if we want to change or update the state we use setState because this
         // SAM: will also cause render() to be called.
+        // genderCount(data.records.map(item =>
+        //   item.people.map(gender => gender.gender)
+        //   console.log(gender.gender);
+        // ));
+        var peopleArray = data.records.map(people => people.people);
+        console.log(peopleArray);
+        console.log(peopleArray[0].gender);
+
+          if (peopleArray.people!==undefined) {
+            //peopleArray.map(gender => gender.gender);
+            //console.log(genderArray);
+            console.log('i am not undefined');
+            var genderCount = peopleArray.people.map(hello => hello.gender);
+          }
+          else {
+            console.log('i am undefined');
+          }
+          console.dir( genderCount );
+
     } );
   }
 
@@ -94,9 +121,10 @@ export class Art extends React.Component {
         <div>
           <div key={item.id} className="art-gallery">
             <li className="content">
-              <img src={item.primaryimageurl+ '?height=500&width=500'}/>
+              <img alt="artwork" src={item.primaryimageurl+ '?height=500&width=500'}/>
               <h6 className="gender">Artist: {getGender(item)}</h6>
               <p className="art-title"><strong>{item.title}</strong></p>
+              {/* <p className="gender-count">{getGenderType(item)}</p> */}
 
             </li>
           </div>
@@ -108,25 +136,16 @@ export class Art extends React.Component {
       )
     );
 
+
+
     function getGender( item ) {
       if (item.people!==undefined) {
         return item.people.map(p=>p.gender);
       }
-      // if (item==='male') {
-      //   console.log('male');
-      // }
       else {
         return ("no gender");
       }
     }
-
-    // function getGenderType( item ) {
-    //   if (item.people.gender === 'male') {
-    //     console.log('male');
-    //   } else {
-    //     return ("female");
-    //   }
-    // }
 
   }
 
@@ -147,8 +166,8 @@ export class Art extends React.Component {
     // Called when the component is removed
   }
 
-  updateSearch(){
-    this.search(this.refs.query.value);
-  }
+  // updateSearch(){
+  //   this.search(this.refs.query.value);
+  // }
 
 }

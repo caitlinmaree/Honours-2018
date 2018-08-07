@@ -1,7 +1,7 @@
 import React from "react";
 
 export class Search extends React.Component {
-  
+
  constructor(props) {
    super(props);
    this.state = {
@@ -28,8 +28,8 @@ export class Search extends React.Component {
    console.log(this.state.term);
  }
  handleSubmit = (event) => {
-   this.setState({ term: event.target.value });
-   console.log(this.state.term);
+   alert('A query was submitted: ' + this.state.term);
+   event.preventDefault();
  }
 
  render() {

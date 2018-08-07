@@ -1,7 +1,70 @@
 @import "../node_modules/bootstrap/scss/bootstrap";
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:700|Roboto:400,400i|Playfair+Display:700');
+//@lost rounder 99.99999;
+//@import url('https://fonts.googleapis.com/css?family=Playfair+Display:700');
+
+$pink: #fff7f7;
+$red: #c70b1d;
+
+body {
+//  background: $pink;
+background-image: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);
+
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Playfair Display', serif;
+  color: $red;
+}
+p {
+  font-family: 'Roboto', sans-serif;
+}
 
 
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
+}
+
+.gallery-wrapper {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px,1fr));
+  grid-gap: 10px;
+  width: 100%;
+  //grid-auto-rows: 300px;
+  .art-gallery {
+    padding: 1rem;
+    list-style-type: none;
+  }
+}
+
+.header-nav {
+  width: 100%;
+  background: white;
+  margin-right: 0;
+  margin-left: 0;
+  margin-bottom: 5rem;
+  border-bottom: solid 1px rgba(211, 211, 211, 0.24);
+}
+
+img {
+  width: 100%;
+}
+
+.search  {
+  input {
+    width: 90%;
+    height: 3rem;
+    border-radius: 12px;
+    border: none;
+    padding: 10px;
+    margin-bottom: 3rem;
+  }
+  button {
+    height: 3rem;
+    background: $red;
+    border: none;
+    margin-left: -13px;
+    color: white;
+  }
 }

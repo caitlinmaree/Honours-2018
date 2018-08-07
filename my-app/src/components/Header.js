@@ -3,7 +3,8 @@ import React from "react";
 export class Header extends React.Component {
   render() {
     return(
-      <nav className="navbar sticky-top navbar-expand-lg navbar-dark bg-primary">
+      <nav className="navbar sticky-top navbar-expand-lg navbar-light">
+        <div className="navbar-brand"><h4>Gender in the Arts</h4></div>
         <div className="container">
           <div className="navbar-header">
 
@@ -13,9 +14,6 @@ export class Header extends React.Component {
               </li>
               <li className="nav-item">
                 <a className="nav-link" href="#">About</a>
-              </li>
-              <li className="nav-item">
-                <a className="nav-link" href="#">Contact</a>
               </li>
             </ul>
           </div>

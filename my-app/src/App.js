@@ -5,8 +5,10 @@ import logo from './logo.svg';
 import './App.css';
 import { Header } from "./components/Header";
 import { Home } from "./components/Home";
-import { Art } from "./components/art/Art";
 import { Search } from "./components/Search";
+import { Art } from "./components/art/Art";
+import { Pagination } from "./components/Pagination";
+import { Footer } from "./components/Footer";
 import SearchInput, {createFilter} from 'react-search-input';
 import ImagesLoaded from 'react-images-loaded';
 //import emails from './mails';
@@ -33,6 +35,16 @@ class App extends Component {
           <div className="row">
             <div className="col-xs-12 col-xs-offset-1 gallery-wrapper">
               <Art/>
+            </div>
+          </div>
+          <div className="row pagination">
+            <div className="col-xs-12 col-xs-offset-1">
+              <Pagination/>
+            </div>
+          </div>
+          <div className="row footer">
+            <div className="col-xs-12 footer-container col-xs-offset-1">
+              <Footer/>
             </div>
           </div>
         </div>

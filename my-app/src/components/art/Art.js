@@ -94,9 +94,10 @@ export class Art extends React.Component {
         <div>
           <div key={item.id} className="art-gallery">
             <li className="content">
-              <h6 className="gender">{getGender(item)}</h6>
-              <p><strong>{item.title}</strong></p>
               <img src={item.primaryimageurl+ '?height=500&width=500'}/>
+              <h6 className="gender">Artist: {getGender(item)}</h6>
+              <p className="art-title"><strong>{item.title}</strong></p>
+
             </li>
           </div>
 

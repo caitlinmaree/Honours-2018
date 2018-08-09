@@ -6300,9 +6300,8 @@ p {
     transform: rotate(360deg); } }
 
 .gallery-wrapper {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  grid-gap: 10px;
+  column-count: 3;
+  column-gap: 30px;
   width: 100%; }
   .gallery-wrapper .art-gallery {
     padding: 1rem;

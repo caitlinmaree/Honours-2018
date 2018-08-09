@@ -27,7 +27,7 @@ export class Art extends React.Component {
 
     var that = this;
     var rest = require("restler");
-    var queryTitle = this.state.query;
+    var queryTitle = 'dance';//this.state.query;
     rest.get("https://api.harvardartmuseums.org/object", {
         query: {
             apikey: "16cd3780-7e88-11e8-a539-1b0e0bda2aef",
@@ -41,7 +41,7 @@ export class Art extends React.Component {
     }).on("complete", function( data ) {
         console.log( ".on:" );
         console.dir( data );
-        console.log('this is caitlin: ' + data.records[0].people[0].gender);
+        //console.log('this is caitlin: ' + data.records[0].people[0].gender);
         that.setState( { records: data.records } );
         // "that" is actually "this" at React scope
         // SAM: setState sets a variable in the React state element to some value.
@@ -54,9 +54,9 @@ export class Art extends React.Component {
         //   item.people.map(gender => gender.gender)
         //   console.log(gender.gender);
         // ));
-        var peopleArray = data.records.map(people => people.people);
-        console.log(peopleArray);
-        console.log(peopleArray[0].gender);
+        // var peopleArray = data.records.map(people => people.people);
+        // console.log(peopleArray);
+        // console.log(peopleArray[0].gender);
         console.log("Records here: /n");
         // Counts the gender
         var male = 0;
@@ -70,15 +70,15 @@ export class Art extends React.Component {
         console.log("Males: " + male);
         console.log("Females: " + female);
 
-          if (peopleArray.people!==undefined) {
-            //peopleArray.map(gender => gender.gender);
-            //console.log(genderArray);
-            console.log('i am not undefined');
-            var genderCount = peopleArray.people.map(hello => hello.gender);
-          }
-          else {
-            console.log('i am undefined');
-          }
+          // if (peopleArray.people!==undefined) {
+          //   //peopleArray.map(gender => gender.gender);
+          //   //console.log(genderArray);
+          //   console.log('i am not undefined');
+          //   var genderCount = peopleArray.people.map(hello => hello.gender);
+          // }
+          // else {
+          //   console.log('i am undefined');
+          // }
           console.dir( genderCount );
 
     } );

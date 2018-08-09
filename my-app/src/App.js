@@ -10,7 +10,8 @@ import { Art } from "./components/art/Art";
 import { Pagination } from "./components/Pagination";
 import { Footer } from "./components/Footer";
 import SearchInput, {createFilter} from 'react-search-input';
-import ImagesLoaded from 'react-images-loaded';
+// import imagesLoaded from 'react-images-loaded';
+// import imagesloaded from 'imagesloaded';
 //import emails from './mails';
 
 

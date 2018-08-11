@@ -12,7 +12,9 @@ export class Art extends React.Component {
       this.state = {
           records: [],
           query: '',
-          femaleCount: 0
+          undefinedGender: 0,
+          male: 0,
+          female: 0
       };
       console.log('the state of query is: ' + this.state.query);
   }
@@ -27,14 +29,15 @@ export class Art extends React.Component {
 
     var that = this;
     var rest = require("restler");
-    var queryTitle = 'dance';//this.state.query;
+    var queryTitle = this.props.searchResult;
+    var page = this.props.pageNumber;
     rest.get("https://api.harvardartmuseums.org/object", {
         query: {
             apikey: "16cd3780-7e88-11e8-a539-1b0e0bda2aef",
             title: queryTitle,
             size: 20,
             hasimage: 1,
-            page: 1,
+            page: page,
             fields: "objectnumber,title,dated,people,primaryimageurl,yearmade,technique",
         }
 
@@ -43,32 +46,29 @@ export class Art extends React.Component {
         console.dir( data );
         //console.log('this is caitlin: ' + data.records[0].people[0].gender);
         that.setState( { records: data.records } );
-        // "that" is actually "this" at React scope
-        // SAM: setState sets a variable in the React state element to some value.
-        // SAM: Up in the constructor we created a state variable called "records" (see above)
-        // SAM: we use setState to update it with the records returned from the REST query
-        // SAM: according to React, we should only set state directly in the constructor
-        // SAM: after that, if we want to change or update the state we use setState because this
-        // SAM: will also cause render() to be called.
-        // genderCount(data.records.map(item =>
-        //   item.people.map(gender => gender.gender)
-        //   console.log(gender.gender);
-        // ));
-        // var peopleArray = data.records.map(people => people.people);
-        // console.log(peopleArray);
-        // console.log(peopleArray[0].gender);
 
 
-          // if (peopleArray.people!==undefined) {
-          //   //peopleArray.map(gender => gender.gender);
-          //   //console.log(genderArray);
-          //   console.log('i am not undefined');
-          //   var genderCount = peopleArray.people.map(hello => hello.gender);
-          // }
-          // else {
-          //   console.log('i am undefined');
-          // }
-          //console.dir( genderCount );
+        //* Count the number of people per gender*/
+        console.log("Records here: /n");
+        // Counts the gender
+        // var male = 0;
+        // var female = 0;
+        data.records.forEach(function(record) {
+          if (record.people !== undefined) {
+            record.people.forEach(function(people) {
+              if (people.gender !== undefined) {
+                if (people.gender == 'male') that.state.male++;
+                if (people.gender == 'female') that.state.female++;
+                if (people.gender == 'unknown') that.state.undefinedGender++;
+              };
+            });
+          };
+        });
+        console.log("Males: " + that.state.male);
+        console.log("Females: " + that.state.female);
+        console.log("Unknown: " + that.state.undefinedGender);
+        console.log('props here');
+        console.log(this.props);
 
     } );
   }
@@ -123,7 +123,7 @@ export class Art extends React.Component {
           <div key={item.id} className="art-gallery">
             <li className="content">
               <img alt="artwork" src={item.primaryimageurl+ '?height=500&width=500'}/>
-              <h6 className="gender">Artist: {getGender(item)}</h6>
+              <h6 className="gender">Artist: {getGender(item)} </h6>
               <p className="art-title"><strong>{item.title}</strong></p>
               {/* <p className="gender-count">{getGenderType(item)}</p> */}
 

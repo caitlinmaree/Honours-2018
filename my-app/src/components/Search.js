@@ -1,4 +1,5 @@
 import React from "react";
+import { Art } from "./art/Art";
 
 export class Search extends React.Component {
 
@@ -23,10 +24,11 @@ export class Search extends React.Component {
  //   this.value.setState.query;
  //   console.log(this.state.query);
  // }
-
  onChange = (event) => {
-   this.setState({ term: event.target.value });
-   console.log(this.state.term);
+   // this.setState({ term: event.target.value });
+   // console.log(this.state.term);
+    var searchResult = event.target.value;
+    console.log(searchResult);
  }
  handleSubmit = (event) => {
    alert('A query was submitted: ' + this.state.term);
@@ -34,16 +36,23 @@ export class Search extends React.Component {
  }
 
  render() {
+   var searchResult = 'flower';
    return (
      // <form>
      //   <input placeholder="Search for..." ref={input => this.search = input} onChange={this.changeSearchTerm}/>
      // </form>
-     <div><form onSubmit={this.handleSubmit}>
-       <input value={this.state.term} onChange={this.onChange} />
+     <div><form onSubmit={this.onChange}>
+       <input value={searchResult} onChange={this.onChange} />
        <button>Search</button>
      </form>
-       <p>{this.state.term}</p>
+       <p>{searchResult}</p>
+       <div className="row">
+         <div className="col-xs-12 col-xs-offset-1 gallery-wrapper">
+           {/* <Art searchResult={searchResult}/> */}
+         </div>
+       </div>
      </div>
+
    )
  }
 }

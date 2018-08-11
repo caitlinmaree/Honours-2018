@@ -57,18 +57,7 @@ export class Art extends React.Component {
         // var peopleArray = data.records.map(people => people.people);
         // console.log(peopleArray);
         // console.log(peopleArray[0].gender);
-        console.log("Records here: /n");
-        // Counts the gender
-        var male = 0;
-        var female = 0;
-        data.records.forEach(function(record) {
-          record.people.forEach(function(people) {
-            if (people.gender == 'male') male++;
-            if (people.gender == 'female') female++;
-          });
-        });
-        console.log("Males: " + male);
-        console.log("Females: " + female);
+
 
           // if (peopleArray.people!==undefined) {
           //   //peopleArray.map(gender => gender.gender);
@@ -79,7 +68,7 @@ export class Art extends React.Component {
           // else {
           //   console.log('i am undefined');
           // }
-          console.dir( genderCount );
+          //console.dir( genderCount );
 
     } );
   }

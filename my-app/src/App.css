@@ -6303,6 +6303,12 @@ p {
   column-count: 3;
   column-gap: 30px;
   width: 100%; }
+  @media screen and (max-width: 992px) {
+    .gallery-wrapper {
+      column-count: 2; } }
+  @media screen and (max-width: 460px) {
+    .gallery-wrapper {
+      column-count: 1; } }
   .gallery-wrapper .art-gallery {
     padding: 1rem;
     list-style-type: none; }

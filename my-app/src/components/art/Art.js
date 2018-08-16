@@ -57,9 +57,9 @@ export class Art extends React.Component {
           if (record.people !== undefined) {
             record.people.forEach(function(people) {
               if (people.gender !== undefined) {
-                if (people.gender == 'male') that.state.male++;
-                if (people.gender == 'female') that.state.female++;
-                if (people.gender == 'unknown') that.state.undefinedGender++;
+                if (people.gender == 'male') that.setState({male: that.state.male + 1});
+                if (people.gender == 'female') that.setState({female: that.state.female + 1});
+                if (people.gender == 'unknown') that.setState({undefinedGender: that.state.undefinedGender + 1});
               };
             });
           };
@@ -79,7 +79,7 @@ export class Art extends React.Component {
   render(){
       // SAM: render is called each time state changes
       console.log( "Render:");
-      console.dir( this.state.records );    // SAM: for debugging
+      //console.dir( this.state.records );    // SAM: for debugging
 
       // SAM: this is confusing so needs some explanation...
       // SAM: we did setState() in .on() above.  This copied the data returned from the
@@ -157,9 +157,11 @@ export class Art extends React.Component {
 
   componentWillReceiveProps(nextProps){
     // Called when the props provided to the component are changed
+    this.componentWillMount();
   }
 
   componentWillUpdate(nextProps, nextState){
+
     // Called when the props and/or state change
   }
 

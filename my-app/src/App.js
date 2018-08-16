@@ -20,24 +20,35 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      term: ''
+      term: '',
+      pageNumber: 1
     };
     this.onChange = this.onChange.bind(this);
+    this.pageNumberChange = this.pageNumberChange.bind(this);
   }
   onChange = (event) => {
     // this.setState({ term: event.target.value });
     // console.log(this.state.term);
+    event.preventDefault();
+
      var searchResult = event.target.value;
-     console.log(searchResult);
+     console.log("[App.js] search result: " + searchResult);
+     console.dir( event );
   }
   handleSubmit = (event) => {
     alert('A query was submitted: ' + this.state.term);
     event.preventDefault();
   }
+  pageNumberChange() {
+    // var pageNumberValue = this.state.pageNumber;
+    // pageNumberValue + 1;
+    this.setState({ pageNumber: this.state.pageNumber + 1});
+    console.log("Page number: " + this.state.pageNumber);
+    //this.state.pageNumber + 1;
+  }
 
   render() {
-    var searchResult = 'flower';
-    var pageNumber = 1;
+    var searchResult = '';
     return (
       <div className="app">
         {/* Header */}
@@ -56,16 +67,17 @@ class App extends Component {
           {/* Search bar */}
           <div className="search">
             <div><form onSubmit={this.onChange}>
-              <input value={searchResult} onChange={this.onChange} />
+              <input name="search"/>
               <button>Search</button>
             </form>
               <p>{searchResult}</p>
+              <p>Undefined gender: {this.state.undefinedGender}</p>
             </div>
           </div>
           {/* Art Gallery */}
           <div className="row">
             <div className="col-xs-12 col-xs-offset-1 gallery-wrapper">
-              <Art searchResult={searchResult} pageNumber={pageNumber}/>
+              <Art searchResult={searchResult} pageNumber={this.setState.pageNumber}/>
             </div>
           </div>
         </div>
@@ -77,7 +89,7 @@ class App extends Component {
                 <li><a onClick={pageNumber = 2} href="#">2</a></li>
                 <li><a onClick={pageNumber = 3} href="#">3</a></li>
               <li><a onClick={pageNumber = 4} href="#">4</a></li> */}
-              <li><a onClick={pageNumber++} href="#">Next Page</a></li>
+              <li><a onClick={this.pageNumberChange} href="#">Next Page</a></li>
             </ul>
           </div>
         </div>

@@ -11,6 +11,7 @@ import { Pagination } from "./components/Pagination";
 import { Footer } from "./components/Footer";
 import { Visualisation } from "./components/Visualisation";
 import SearchInput, {createFilter} from 'react-search-input';
+import ReactTooltip from 'react-tooltip';
 // import imagesLoaded from 'react-images-loaded';
 // import imagesloaded from 'imagesloaded';
 //import emails from './mails';
@@ -66,6 +67,7 @@ class App extends Component {
           <div className="row">
             <div className="col-xs-12 col-xs-offset-1">
               <Home/>
+              <ReactTooltip />
             </div>
           </div>
           <div className="search">

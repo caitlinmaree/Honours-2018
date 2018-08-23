@@ -184,3 +184,12 @@ p.art-title {
 .bar-female {
   background-color: $purple;
 }
+
+//tooltip
+.__react_component_tooltip.type-dark {
+  background: $blue;
+  color: $pink;
+}
+.__react_component_tooltip.type-dark.place-top:after {
+  border-top-color: $blue; 
+}

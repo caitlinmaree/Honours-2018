@@ -93,6 +93,7 @@ export class Art extends React.Component {
 
             </li>
           </div>
+          
         </div>
       )
     );

@@ -6408,15 +6408,5 @@ p.art-title {
     font-family: 'Playfair Display', serif;
     color: #fff7f7; }
 
-.bar-male {
-  background-color: #dda643; }
-
-.bar-female {
-  background-color: #a56f8d; }
-
-.__react_component_tooltip.type-dark {
-  background: #004695;
-  color: #fff7f7; }
-
-.__react_component_tooltip.type-dark.place-top:after {
-  border-top-color: #004695; }
+.art-gallery#undefined, .art-gallery#male, .art-gallery#unknown {
+  opacity: 0.1; }

@@ -73,11 +73,11 @@ class App extends Component {
           <div className="search">
             <Search changeTermCallBack={this.changeTermCallBack} />
           </div>
-          <div className="row">
+          {/* <div className="row">
             <div className="col-xs-12 col-xs-offset-1 visualisation-wrapper">
               <Visualisation maleCountApp={this.state.maleCountApp} femaleCountApp={this.state.femaleCountApp}/>
             </div>
-          </div>
+          </div> */}
           <div className="row">
             <div className="col-xs-12 col-xs-offset-1 gallery-wrapper">
               <Art term={this.state.searchTerm} pageNumber={this.state.pageNumber} passGenderCountMale={this.passGenderCountMale} passGenderCountFemale={this.passGenderCountFemale}/>

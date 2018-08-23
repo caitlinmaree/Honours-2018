@@ -177,19 +177,6 @@ p.art-title {
   }
 }
 
-.bar-male {
-  background-color: $gold;
-}
-
-.bar-female {
-  background-color: $purple;
-}
-
-//tooltip
-.__react_component_tooltip.type-dark {
-  background: $blue;
-  color: $pink;
-}
-.__react_component_tooltip.type-dark.place-top:after {
-  border-top-color: $blue; 
+.art-gallery#undefined, .art-gallery#male, .art-gallery#unknown {
+  opacity: 0.1;
 }

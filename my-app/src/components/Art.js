@@ -26,6 +26,7 @@ export class Art extends React.Component {
     this.props.passGenderCountFemale( this.state.female );
   }
 
+
   componentWillMount(props){
     var queryTitle = this.props.term;
     var page = this.props.pageNumber;
@@ -33,6 +34,7 @@ export class Art extends React.Component {
     console.log( "[Art.js] page number is now: " + page );
     this.doQuery( this, queryTitle );
     this.doQuery( this, page );
+
   }
 
   doQuery(that, queryTitle, page) {
@@ -72,6 +74,14 @@ export class Art extends React.Component {
          console.log("Unknown: " + that.state.undefinedGender);
          that.captureGenderCount();
 
+        //  function genderClass() {
+        //    if (this.state.male >= 1) {
+        //      var elementMale = document.getElementsByClassName('art-gallery');
+        //      console.log('element male: ' + elementMale);
+        //      elementMale.classList.add("maleWrapper");
+        //    }
+        // }
+
     } );
   }
 
@@ -84,7 +94,7 @@ export class Art extends React.Component {
 
       return ( this.state.records.map(item =>
         <div>
-          <div key={item.id} className="art-gallery">
+          <div key={item.id} className="art-gallery" id={getGender(item)}>
             <li className="content">
               <img alt="artwork" src={item.primaryimageurl+ '?height=500&width=500'}/>
               <h6 className="gender">Artist: {getGender(item)}</h6>
@@ -93,7 +103,7 @@ export class Art extends React.Component {
 
             </li>
           </div>
-          
+
         </div>
       )
     );
@@ -105,7 +115,7 @@ export class Art extends React.Component {
         return item.people.map(p=>p.gender);
       }
       else {
-        return ("no gender");
+        return ("undefined");
       }
     }
 

@@ -6409,4 +6409,5 @@ p.art-title {
     color: #fff7f7; }
 
 .art-gallery#undefined, .art-gallery#male, .art-gallery#unknown, .art-gallery#multi-gender {
-  opacity: 0.1; }
+  opacity: 0.1;
+  filter: blur(4px); }

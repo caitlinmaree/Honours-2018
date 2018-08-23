@@ -6288,7 +6288,7 @@ body {
 
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Playfair Display', serif;
-  color: #c70b1d; }
+  color: #ea3d3d; }
 
 p {
   font-family: 'Roboto', sans-serif; }
@@ -6318,7 +6318,7 @@ p {
   background: white;
   margin-right: 0;
   margin-left: 0;
-  margin-bottom: 5rem;
+  margin-bottom: 12rem;
   border-bottom: solid 1px rgba(211, 211, 211, 0.24); }
 
 img {
@@ -6335,7 +6335,7 @@ p.art-title {
 .search form {
   position: relative; }
 
-.search input {
+.search .input-field {
   width: 100%;
   height: 3rem;
   border-radius: 12px;
@@ -6344,7 +6344,7 @@ p.art-title {
   margin-bottom: 3rem;
   box-shadow: -4px 4px 7px -8px rgba(0, 0, 0, 0.75); }
 
-.search button {
+.search .submit-button {
   height: 3rem;
   background: #c70b1d;
   color: #fff7f7;
@@ -6354,7 +6354,7 @@ p.art-title {
   right: 1px;
   border-radius: 0 10px 10px 0;
   padding: 0 1rem; }
-  .search button:hover, .search button:active, .search button:focus {
+  .search .submit-button:hover, .search .submit-button:active, .search .submit-button:focus {
     background: #af0a19;
     cursor: pointer; }
 
@@ -6388,3 +6388,21 @@ p.art-title {
     text-align: center; }
     .footer .footer-container h4 {
       font-size: 1rem; }
+
+.gender-count {
+  background: #a56f8d;
+  color: #fff7f7;
+  padding: 1rem;
+  border-right: 8px solid #dda643;
+  position: fixed;
+  top: 90px;
+  left: 0;
+  z-index: 9; }
+  .gender-count ul {
+    list-style-type: none;
+    padding: 0; }
+  .gender-count h6 {
+    color: #fff7f7; }
+  .gender-count .gender-label {
+    font-family: 'Playfair Display', serif;
+    color: #fff7f7; }

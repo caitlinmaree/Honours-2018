@@ -6,9 +6,10 @@ import './App.css';
 import { Header } from "./components/Header";
 import { Home } from "./components/Home";
 import { Search } from "./components/Search";
-import { Art } from "./components/art/Art";
+import { Art } from "./components/Art";
 import { Pagination } from "./components/Pagination";
 import { Footer } from "./components/Footer";
+import { Visualisation } from "./components/Visualisation";
 import SearchInput, {createFilter} from 'react-search-input';
 // import imagesLoaded from 'react-images-loaded';
 // import imagesloaded from 'imagesloaded';
@@ -17,29 +18,35 @@ import SearchInput, {createFilter} from 'react-search-input';
 
 class App extends Component {
 
-  constructor(props) {
-    super(props);
-    this.state = {
-      term: '',
-      pageNumber: 1
-    };
-    this.onChange = this.onChange.bind(this);
-    this.pageNumberChange = this.pageNumberChange.bind(this);
+  constructor(props){
+      super( props );   // SAM: need to call super() first
+      this.state = {
+          searchTerm: 'default',
+          pageNumber: 1,
+          femaleCountApp: 0,
+          maleCountApp: 0
+      }
+      this.changeTermCallBack = this.changeTermCallBack.bind( this );
+      this.pageNumberChange = this.pageNumberChange.bind(this);
+      this.passGenderCountMale = this.passGenderCountMale.bind(this)
+      this.passGenderCountFemale = this.passGenderCountFemale.bind(this);;
   }
-  onChange = (event) => {
-    // this.setState({ term: event.target.value });
-    // console.log(this.state.term);
-    event.preventDefault();
 
-     var searchResult = event.target.value;
-     console.log("[App.js] search result: " + searchResult);
-     console.dir( event );
+  changeTermCallBack( term ) {
+      console.log( "[1] searchTerm set in changeTermCallBack:" + term);
+      this.setState( {searchTerm: term}, function() {console.log( "[2] searchTerm in state: " + this.state.searchTerm );} );
   }
-  handleSubmit = (event) => {
-    alert('A query was submitted: ' + this.state.term);
-    event.preventDefault();
+
+  passGenderCountMale( male ) {
+      console.log( "[1] gender count of male set in passGenderCountMale:" + male);
+      this.setState( {maleCountApp: male}, function() {console.log( "[2] gender count of male in state: " + this.state.maleCountApp );} );
   }
-  pageNumberChange() {
+  passGenderCountFemale( female ) {
+      console.log( "[1] gender count of male set in passGenderCountMale:" + female);
+      this.setState( {femaleCountApp: female}, function() {console.log( "[2] gender count of female in state: " + this.state.femaleCountApp );} );
+  }
+
+  pageNumberChange( page ) {
     // var pageNumberValue = this.state.pageNumber;
     // pageNumberValue + 1;
     this.setState({ pageNumber: this.state.pageNumber + 1});
@@ -48,54 +55,43 @@ class App extends Component {
   }
 
   render() {
-    var searchResult = '';
     return (
       <div className="app">
-        {/* Header */}
         <div className="row header-nav">
           <div className="col-xs-12 col-xs-offset-1">
             <Header/>
           </div>
         </div>
-        {/* Body */}
+        <div className="row">
+          <div className="col-xs-12 col-xs-offset-1">
+            <Visualisation maleCountApp={this.state.maleCountApp} femaleCountApp={this.state.femaleCountApp}/>
+          </div>
+        </div>
         <div className="container">
           <div className="row">
             <div className="col-xs-12 col-xs-offset-1">
               <Home/>
             </div>
           </div>
-          {/* Search bar */}
           <div className="search">
-            <div><form onSubmit={this.onChange}>
-              <input name="search"/>
-              <button>Search</button>
-            </form>
-              <p>{searchResult}</p>
-              <p>Undefined gender: {this.state.undefinedGender}</p>
-            </div>
+            <Search changeTermCallBack={this.changeTermCallBack} />
           </div>
-          {/* Art Gallery */}
           <div className="row">
             <div className="col-xs-12 col-xs-offset-1 gallery-wrapper">
-              <Art searchResult={searchResult} pageNumber={this.setState.pageNumber}/>
+              <Art term={this.state.searchTerm} pageNumber={this.state.pageNumber} passGenderCountMale={this.passGenderCountMale} passGenderCountFemale={this.passGenderCountFemale}/>
             </div>
           </div>
-        </div>
-        {/* Pagination */}
-        <div className="row pagination">
-          <div className="pagination-list">
-            <ul>
-              {/* <li><a onClick={pageNumber = 1} href="#">1</a></li>
-                <li><a onClick={pageNumber = 2} href="#">2</a></li>
-                <li><a onClick={pageNumber = 3} href="#">3</a></li>
-              <li><a onClick={pageNumber = 4} href="#">4</a></li> */}
-              <li><a onClick={this.pageNumberChange} href="#">Next Page</a></li>
-            </ul>
+          <div className="row pagination">
+            <div className="pagination-list">
+              <ul>
+                <li><a onClick={this.pageNumberChange} href="#">Next Page</a></li>
+              </ul>
+            </div>
           </div>
-        </div>
-        <div className="row footer">
-          <div className="col-xs-12 footer-container col-xs-offset-1">
-            <Footer/>
+          <div className="row footer">
+            <div className="col-xs-12 footer-container col-xs-offset-1">
+              <Footer/>
+            </div>
           </div>
         </div>
       </div>

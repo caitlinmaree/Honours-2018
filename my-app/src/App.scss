@@ -5,16 +5,23 @@
 
 $pink: #fff7f7;
 $red: #c70b1d;
+$yellow: #f9fed6;
+$redtwo: #ea3d3d;
+$pink-dark: #fef0f0;
+$blue: #004695;
+$musk: #c5adc2;
+$gold: #dda643;
+$purple: #a56f8d;
 
 body {
-//  background: $pink;
-background-image: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);
+  //background: $yellow;
+  background-image: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);
 
 }
 
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Playfair Display', serif;
-  color: $red;
+  color: $redtwo;
 }
 p {
   font-family: 'Roboto', sans-serif;
@@ -52,7 +59,7 @@ p {
   background: white;
   margin-right: 0;
   margin-left: 0;
-  margin-bottom: 5rem;
+  margin-bottom: 12rem;
   border-bottom: solid 1px rgba(211, 211, 211, 0.24);
 }
 
@@ -74,7 +81,7 @@ p.art-title {
   form {
     position: relative;
   }
-  input {
+  .input-field {
     width: 100%;
     height: 3rem;
     border-radius: 12px;
@@ -83,7 +90,7 @@ p.art-title {
     margin-bottom: 3rem;
     box-shadow: -4px 4px 7px -8px rgba(0, 0, 0, 0.75);
   }
-  button {
+  .submit-button {
     height: 3rem;
     background: $red;
     color: $pink;
@@ -141,5 +148,27 @@ p.art-title {
     h4 {
       font-size: 1rem;
     }
+  }
+}
+
+.gender-count {
+  background: $purple;
+  color: $pink;
+  padding: 1rem;
+  border-right: 8px solid $gold;
+  position: fixed;
+  top: 90px;
+  left: 0;
+  z-index: 9;
+  ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  h6 {
+    color: $pink;
+  }
+  .gender-label {
+    font-family: 'Playfair Display', serif;
+    color: $pink;
   }
 }

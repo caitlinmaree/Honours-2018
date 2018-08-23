@@ -62,9 +62,9 @@ export class Art extends React.Component {
            if (record.people !== undefined) {
              record.people.forEach(function(people) {
                if (people.gender !== undefined) {
-                 if (people.gender == 'male') that.setState({male: that.state.male + 1});
-                 if (people.gender == 'female') that.setState({female: that.state.female + 1});
-                 if (people.gender == 'unknown') that.setState({undefinedGender: that.state.undefinedGender + 1});
+                 if (people.gender === 'male') that.setState({male: that.state.male + 1});
+                 if (people.gender === 'female') that.setState({female: that.state.female + 1});
+                 if (people.gender === 'unknown') that.setState({undefinedGender: that.state.undefinedGender + 1});
                };
              });
            };
@@ -97,7 +97,7 @@ export class Art extends React.Component {
           <div key={item.id} className="art-gallery" id={getGender(item)}>
             <li className="content">
               <img alt="artwork" src={item.primaryimageurl+ '?height=500&width=500'}/>
-              <h6 className="gender">Artist: {getGender(item)}</h6>
+              <h6 className="gender">Artist: <span>{getGender(item)}</span></h6>
               <p className="art-title"><strong>{item.title}</strong></p>
               {/* <p className="gender-count">{getGenderType(item)}</p> */}
 
@@ -112,13 +112,16 @@ export class Art extends React.Component {
 
     function getGender( item ) {
       if (item.people!==undefined) {
+        if (item.people.length >= 2) {
+          console.log('array longer than 1');
+          return ("multi-gender");
+        }
         return item.people.map(p=>p.gender);
       }
       else {
         return ("undefined");
       }
     }
-
   }
 
   componentDidMount(){
@@ -128,7 +131,7 @@ export class Art extends React.Component {
 
   componentDidUpdate(nextProps){
     // Called when the props provided to the component are changed
-    if ( this.props.term == nextProps.term ) return; // no need to search again for same query
+    if ( this.props.term === nextProps.term ) return; // no need to search again for same query
     var queryTitle = this.props.term;
     //if ( this.props.pageNumber == nextPage.pageNumber ) return;
     //var page = this.props.pageNumber;

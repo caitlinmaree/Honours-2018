@@ -6408,5 +6408,5 @@ p.art-title {
     font-family: 'Playfair Display', serif;
     color: #fff7f7; }
 
-.art-gallery#undefined, .art-gallery#male, .art-gallery#unknown {
+.art-gallery#undefined, .art-gallery#male, .art-gallery#unknown, .art-gallery#multi-gender {
   opacity: 0.1; }

@@ -62,11 +62,6 @@ class App extends Component {
             <Header/>
           </div>
         </div>
-        <div className="row">
-          <div className="col-xs-12 col-xs-offset-1">
-            <Visualisation maleCountApp={this.state.maleCountApp} femaleCountApp={this.state.femaleCountApp}/>
-          </div>
-        </div>
         <div className="container">
           <div className="row">
             <div className="col-xs-12 col-xs-offset-1">
@@ -75,6 +70,11 @@ class App extends Component {
           </div>
           <div className="search">
             <Search changeTermCallBack={this.changeTermCallBack} />
+          </div>
+          <div className="row">
+            <div className="col-xs-12 col-xs-offset-1 visualisation-wrapper">
+              <Visualisation maleCountApp={this.state.maleCountApp} femaleCountApp={this.state.femaleCountApp}/>
+            </div>
           </div>
           <div className="row">
             <div className="col-xs-12 col-xs-offset-1 gallery-wrapper">

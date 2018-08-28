@@ -26,13 +26,7 @@ export class Art extends React.Component {
     this.props.passGenderCountFemale( this.state.female );
   }
 
-  componentWillMount(props){
-    var queryTitle = this.props.term;
-    var page = this.props.pageNumber;
-    console.log( "[Art.js] query is now: " + queryTitle );
-    console.log( "[Art.js] page number is now: " + page );
-    this.doQuery( this, queryTitle );
-    this.doQuery( this, page );
+  componentWillMount(){
   }
 
   doQuery(that, queryTitle, page) {
@@ -93,7 +87,7 @@ export class Art extends React.Component {
 
             </li>
           </div>
-          
+
         </div>
       )
     );
@@ -112,20 +106,27 @@ export class Art extends React.Component {
   }
 
   componentDidMount(){
-    // Called after the component has been rendered into the page
+    var queryTitle = this.props.term;
+    var page = this.props.pageNumber;
+    console.log( "[Art.js] query is now: " + queryTitle );
+    console.log( "[Art.js] page number is now: " + page );
+    this.doQuery( this, queryTitle, page );
   }
 
 
   componentDidUpdate(nextProps){
     // Called when the props provided to the component are changed
-    if ( this.props.term == nextProps.term ) return; // no need to search again for same query
+    console.log( "Art.js update [" + this.props.pageNumber + "]"  );
+    if ( this.props.term === nextProps.term && this.props.pageNumber === nextProps.pageNumber ) return; // no need to search again for same query
     var queryTitle = this.props.term;
     //if ( this.props.pageNumber == nextPage.pageNumber ) return;
-    //var page = this.props.pageNumber;
+    var page = this.props.pageNumber;
     console.log( "[Art.js componentWillRecieveProps] query is now: " + queryTitle );
-    this.doQuery( this, queryTitle );
+    this.doQuery( this, queryTitle, page );
     //this.doQuery( this, page );
   }
+
+
 
   componentWillUpdate(nextProps, nextState) {
     //componentWillUpdate(nextProps, nextState, nextPage) {

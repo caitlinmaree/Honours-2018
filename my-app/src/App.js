@@ -22,7 +22,7 @@ class App extends Component {
   constructor(props){
       super( props );   // SAM: need to call super() first
       this.state = {
-          searchTerm: 'default',
+          searchTerm: 'flower',
           pageNumber: 1,
           femaleCountApp: 0,
           maleCountApp: 0

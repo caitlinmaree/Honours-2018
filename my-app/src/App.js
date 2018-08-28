@@ -50,11 +50,11 @@ class App extends Component {
     // var pageNumberValue = this.state.pageNumber;
     // pageNumberValue + 1;
     this.setState({ pageNumber: this.state.pageNumber + 1});
-    console.log("Page number: " + this.state.pageNumber);
     //this.state.pageNumber + 1;
   }
 
   render() {
+    console.log( "APP RENDER" );
     return (
       <div className="app">
         <div className="row header-nav">

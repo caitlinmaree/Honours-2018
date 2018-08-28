@@ -26,13 +26,10 @@ export class Art extends React.Component {
     this.props.passGenderCountFemale( this.state.female );
   }
 
+
   componentWillMount(props){
-    var queryTitle = this.props.term;
-    var page = this.props.pageNumber;
-    console.log( "[Art.js] query is now: " + queryTitle );
-    console.log( "[Art.js] page number is now: " + page );
-    this.doQuery( this, queryTitle );
-    this.doQuery( this, page );
+
+
   }
 
   doQuery(that, queryTitle, page) {
@@ -49,6 +46,7 @@ export class Art extends React.Component {
 
     }).on("complete", function( data ) {
         console.log( ".on:" );
+        console.log("[art.js] page: " + page);
         console.dir( data );
         that.setState( { records: data.records } );
         var peopleArray = data.records.map(people => people.people);
@@ -60,9 +58,9 @@ export class Art extends React.Component {
            if (record.people !== undefined) {
              record.people.forEach(function(people) {
                if (people.gender !== undefined) {
-                 if (people.gender == 'male') that.setState({male: that.state.male + 1});
-                 if (people.gender == 'female') that.setState({female: that.state.female + 1});
-                 if (people.gender == 'unknown') that.setState({undefinedGender: that.state.undefinedGender + 1});
+                 if (people.gender === 'male') that.setState({male: that.state.male + 1});
+                 if (people.gender === 'female') that.setState({female: that.state.female + 1});
+                 if (people.gender === 'unknown') that.setState({undefinedGender: that.state.undefinedGender + 1});
                };
              });
            };
@@ -71,6 +69,14 @@ export class Art extends React.Component {
          console.log("Females: " + that.state.female);
          console.log("Unknown: " + that.state.undefinedGender);
          that.captureGenderCount();
+
+        //  function genderClass() {
+        //    if (this.state.male >= 1) {
+        //      var elementMale = document.getElementsByClassName('art-gallery');
+        //      console.log('element male: ' + elementMale);
+        //      elementMale.classList.add("maleWrapper");
+        //    }
+        // }
 
     } );
   }
@@ -84,15 +90,16 @@ export class Art extends React.Component {
 
       return ( this.state.records.map(item =>
         <div>
-          <div key={item.id} className="art-gallery">
+          <div key={item.id} className="art-gallery" id={getGender(item)}>
             <li className="content">
               <img alt="artwork" src={item.primaryimageurl+ '?height=500&width=500'}/>
-              <h6 className="gender">Artist: {getGender(item)}</h6>
+              <h6 className="gender">Artist: <span>{getGender(item)}</span></h6>
               <p className="art-title"><strong>{item.title}</strong></p>
               {/* <p className="gender-count">{getGenderType(item)}</p> */}
 
             </li>
           </div>
+
         </div>
       )
     );
@@ -101,34 +108,37 @@ export class Art extends React.Component {
 
     function getGender( item ) {
       if (item.people!==undefined) {
+        if (item.people.length >= 2) {
+          console.log('array longer than 1');
+          return ("multi-gender");
+        }
         return item.people.map(p=>p.gender);
       }
       else {
-        return ("no gender");
+        return ("undefined");
       }
     }
-
   }
 
   componentDidMount(){
-    // Called after the component has been rendered into the page
+    var queryTitle = this.props.term;
+    var page = this.props.pageNumber;
+    console.log( "[Art.js] query is now: " + queryTitle );
+    console.log( "[Art.js] page number is now: " + page );
+    this.doQuery( this, queryTitle, page );
   }
 
 
   componentDidUpdate(nextProps){
     // Called when the props provided to the component are changed
-    if ( this.props.term == nextProps.term ) return; // no need to search again for same query
+    console.log( "Art.js update [" + this.props.pageNumber + "]"  );
+    if ( this.props.term === nextProps.term && this.props.pageNumber === nextProps.pageNumber ) return; // no need to search again for same query
     var queryTitle = this.props.term;
     //if ( this.props.pageNumber == nextPage.pageNumber ) return;
-    //var page = this.props.pageNumber;
+    var page = this.props.pageNumber;
     console.log( "[Art.js componentWillRecieveProps] query is now: " + queryTitle );
-    this.doQuery( this, queryTitle );
+    this.doQuery( this, queryTitle, page );
     //this.doQuery( this, page );
-  }
-
-  componentWillUpdate(nextProps, nextState) {
-    //componentWillUpdate(nextProps, nextState, nextPage) {
-    // Called when the props and/or state change
   }
 
   componentWillUnmount(){

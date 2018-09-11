@@ -51,6 +51,7 @@ p {
   .art-gallery {
     padding: 1rem;
     list-style-type: none;
+    display: inline-block;
   }
 }
 
@@ -108,7 +109,6 @@ p.art-title {
     }
   }
 }
-
 .pagination {
   padding: 50px 0;
   //position: relative;
@@ -191,5 +191,5 @@ p.art-title {
   color: $pink;
 }
 .__react_component_tooltip.type-dark.place-top:after {
-  border-top-color: $blue; 
+  border-top-color: $blue;
 }

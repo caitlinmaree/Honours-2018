@@ -13,7 +13,8 @@ export class Art extends React.Component {
           records: [],
           undefinedGender: 0,
           male: 0,
-          female: 0
+          female: 0,
+          complete: 'unloaded'
       };
       this.captureGenderCount = this.captureGenderCount.bind(this);
   }
@@ -45,6 +46,8 @@ export class Art extends React.Component {
         console.log( ".on:" );
         console.dir( data );
         that.setState( { records: data.records } );
+        that.setState( { complete: 'loaded'});
+        console.log("CAITLIN!! LOADED");
         var peopleArray = data.records.map(people => people.people);
         console.log(peopleArray);
         //console.log(peopleArray[0].gender);
@@ -78,7 +81,7 @@ export class Art extends React.Component {
 
       return ( this.state.records.map(item =>
         <div>
-          <div key={item.id} className="art-gallery">
+          <div key={item.id} className="art-gallery" id={this.state.complete}>
             <li className="content">
               <img alt="artwork" src={item.primaryimageurl+ '?height=500&width=500'}/>
               <h6 className="gender">Artist: {getGender(item)}</h6>

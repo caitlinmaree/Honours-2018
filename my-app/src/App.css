@@ -6300,8 +6300,8 @@ p {
     transform: rotate(360deg); } }
 
 .gallery-wrapper {
-  column-count: 3;
-  column-gap: 30px;
+  column-count: 15;
+  column-gap: 0;
   width: 100%; }
   @media screen and (max-width: 992px) {
     .gallery-wrapper {
@@ -6310,7 +6310,7 @@ p {
     .gallery-wrapper {
       column-count: 1; } }
   .gallery-wrapper .art-gallery {
-    padding: 1rem;
+    padding: 10px;
     list-style-type: none; }
 
 .header-nav {
@@ -6409,5 +6409,4 @@ p.art-title {
     color: #fff7f7; }
 
 .art-gallery#undefined, .art-gallery#male, .art-gallery#unknown, .art-gallery#multi-gender {
-  opacity: 0.1;
-  filter: blur(4px); }
+  opacity: 0.1; }

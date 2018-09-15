@@ -37,7 +37,7 @@ export class Art extends React.Component {
         query: {
             apikey: "16cd3780-7e88-11e8-a539-1b0e0bda2aef",
             title: queryTitle,
-            size: 20,
+            size: 100,
             hasimage: 1,
             page: page,
             fields: "objectnumber,title,dated,people,primaryimageurl,yearmade,technique",
@@ -90,11 +90,7 @@ export class Art extends React.Component {
         <div>
           <div key={item.id} className="art-gallery" id={getGender(item)}>
             <li className="content">
-              <img alt="artwork" src={item.primaryimageurl+ '?height=500&width=500'}/>
-              <h6 className="gender">Artist: <span>{getGender(item)}</span></h6>
-              <p className="art-title"><strong>{item.title}</strong></p>
-              {/* <p className="gender-count">{getGenderType(item)}</p> */}
-
+              <img alt="artwork" src={item.primaryimageurl+ '?height=100&width=100'}/>
             </li>
           </div>
 

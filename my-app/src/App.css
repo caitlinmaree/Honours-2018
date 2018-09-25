@@ -6406,3 +6406,9 @@ p.art-title {
   .gender-count .gender-label {
     font-family: 'Playfair Display', serif;
     color: #fff7f7; }
+
+.citation {
+  color: #c2c2c2;
+  font-style: italic; }
+  .citation a {
+    color: #a56f8d; }

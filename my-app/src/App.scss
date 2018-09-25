@@ -12,6 +12,7 @@ $blue: #004695;
 $musk: #c5adc2;
 $gold: #dda643;
 $purple: #a56f8d;
+$grey: #a8a8a8;
 
 body {
   //background: $yellow;
@@ -170,5 +171,13 @@ p.art-title {
   .gender-label {
     font-family: 'Playfair Display', serif;
     color: $pink;
+  }
+}
+
+.citation {
+  color: lighten($grey, 10%);
+  font-style: italic;
+  a {
+    color: $purple;
   }
 }

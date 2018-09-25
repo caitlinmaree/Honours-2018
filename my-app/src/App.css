@@ -6325,7 +6325,7 @@ img {
   width: 100%; }
 
 p.art-title {
-  color: grey;
+  color: #a8a8a8;
   font-size: 14px;
   font-weight: lighter; }
 
@@ -6411,3 +6411,9 @@ p.art-title {
 .art-gallery#undefined, .art-gallery#male, .art-gallery#unknown, .art-gallery#multi-gender {
   opacity: 0.1;
   filter: blur(4px); }
+
+.citation {
+  color: #c2c2c2;
+  font-style: italic; }
+  .citation a {
+    color: #a56f8d; }

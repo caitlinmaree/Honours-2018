@@ -12,6 +12,7 @@ $blue: #004695;
 $musk: #c5adc2;
 $gold: #dda643;
 $purple: #a56f8d;
+$grey: #a8a8a8;
 
 body {
   //background: $yellow;
@@ -69,7 +70,7 @@ img {
 }
 
 p.art-title {
-  color: grey;
+  color: $grey;
   font-size: 14px;
   font-weight: lighter;
 }
@@ -192,4 +193,12 @@ p.art-title {
 }
 .__react_component_tooltip.type-dark.place-top:after {
   border-top-color: $blue;
+}
+
+.citation {
+  color: lighten($grey, 10%);
+  font-style: italic;
+  a {
+    color: $purple;
+  }
 }

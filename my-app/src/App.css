@@ -6326,7 +6326,7 @@ img {
   width: 100%; }
 
 p.art-title {
-  color: grey;
+  color: #a8a8a8;
   font-size: 14px;
   font-weight: lighter; }
 
@@ -6421,3 +6421,9 @@ p.art-title {
 
 .__react_component_tooltip.type-dark.place-top:after {
   border-top-color: #004695; }
+
+.citation {
+  color: #c2c2c2;
+  font-style: italic; }
+  .citation a {
+    color: #a56f8d; }

@@ -65,7 +65,7 @@ class App extends Component {
         </div>
         <div className="container">
           <div className="row">
-            <div className="col-xs-12 col-xs-offset-1">
+            <div className="col-xs-12 col-xs-offset-1 intro-wrapper">
               <Home/>
               <ReactTooltip />
             </div>

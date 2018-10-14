@@ -6427,3 +6427,24 @@ p.art-title {
   font-style: italic; }
   .citation a {
     color: #a56f8d; }
+
+.intro-text {
+  max-width: 800px;
+  margin: 0 auto 5rem;
+  text-align: center; }
+  .intro-text h1, .intro-text h2 {
+    color: #203e4a; }
+  .intro-text h1 {
+    font-size: 5.5rem; }
+  .intro-text h2 {
+    font-size: 3.5rem; }
+  .intro-text span {
+    display: inline-block;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    padding-bottom: 1rem; }
+  .intro-text .explore {
+    margin-top: -1rem; }
+
+.intro-wrapper {
+  width: 100%; }

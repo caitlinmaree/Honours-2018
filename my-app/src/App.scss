@@ -13,6 +13,7 @@ $musk: #c5adc2;
 $gold: #dda643;
 $purple: #a56f8d;
 $grey: #a8a8a8;
+$green: #203e4a;
 
 body {
   //background: $yellow;
@@ -201,4 +202,34 @@ p.art-title {
   a {
     color: $purple;
   }
+}
+
+//site intro-text
+.intro-text {
+  max-width: 800px;
+  margin: 0 auto 5rem;
+  text-align: center;
+  h1, h2 {
+    color: $green;
+  }
+  h1 {
+    font-size: 5.5rem;
+  }
+  h2 {
+    font-size: 3.5rem;
+  }
+  span {
+    display: inline-block;
+    //background-image: url('images/highlight.png');
+    background-size: 100%;
+    background-repeat: no-repeat;
+    padding-bottom: 1rem;
+  }
+  .explore {
+    margin-top: -1rem;
+  }
+}
+
+.intro-wrapper {
+  width: 100%;
 }

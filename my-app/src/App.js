@@ -8,6 +8,7 @@ import { Home } from "./components/Home";
 import { Search } from "./components/Search";
 import { Art } from "./components/Art";
 import { Pagination } from "./components/Pagination";
+import { Index } from "./components/Index";
 import { Footer } from "./components/Footer";
 import { Visualisation } from "./components/Visualisation";
 import SearchInput, {createFilter} from 'react-search-input';
@@ -25,17 +26,22 @@ class App extends Component {
           searchTerm: 'flower',
           pageNumber: 1,
           femaleCountApp: 0,
-          maleCountApp: 0
+          maleCountApp: 0,
+          prototypeClass: 'prototypezero'
       }
       this.changeTermCallBack = this.changeTermCallBack.bind( this );
       this.pageNumberChange = this.pageNumberChange.bind(this);
-      this.passGenderCountMale = this.passGenderCountMale.bind(this)
-      this.passGenderCountFemale = this.passGenderCountFemale.bind(this);;
+      this.passGenderCountMale = this.passGenderCountMale.bind(this);
+      this.passGenderCountFemale = this.passGenderCountFemale.bind(this);
+      this.changePrototype = this.changePrototype.bind(this);
   }
 
   changeTermCallBack( term ) {
       console.log( "[1] searchTerm set in changeTermCallBack:" + term);
       this.setState( {searchTerm: term}, function() {console.log( "[2] searchTerm in state: " + this.state.searchTerm );} );
+  }
+  changePrototype(prototype) {
+    this.setState( {prototypeClass: prototype}, function() {console.log( "[2] prototype in state: " + this.state.prototypeClass );} );
   }
 
   passGenderCountMale( male ) {
@@ -57,10 +63,11 @@ class App extends Component {
 
   render() {
     return (
-      <div className="app">
+      <div className="app" id={this.state.prototypeClass}>
         <div className="row header-nav">
           <div className="col-xs-12 col-xs-offset-1">
             <Header/>
+            <Index changePrototype={this.changePrototype}/>
           </div>
         </div>
         <div className="container">
@@ -68,31 +75,34 @@ class App extends Component {
             <div className="col-xs-12 col-xs-offset-1 intro-wrapper">
               <Home/>
               <ReactTooltip />
+
             </div>
           </div>
-          <div className="search">
-            <Search changeTermCallBack={this.changeTermCallBack} />
-          </div>
-          <div className="row">
-            <div className="col-xs-12 col-xs-offset-1 visualisation-wrapper">
-              <Visualisation maleCountApp={this.state.maleCountApp} femaleCountApp={this.state.femaleCountApp}/>
+          <div id="art-wrapper">
+            <div className="search">
+              <Search changeTermCallBack={this.changeTermCallBack} />
             </div>
-          </div>
-          <div className="row">
-            <div className="col-xs-12 col-xs-offset-1 gallery-wrapper">
-              <Art term={this.state.searchTerm} pageNumber={this.state.pageNumber} passGenderCountMale={this.passGenderCountMale} passGenderCountFemale={this.passGenderCountFemale}/>
+            <div className="row">
+              <div className="col-xs-12 col-xs-offset-1 visualisation-wrapper">
+                <Visualisation maleCountApp={this.state.maleCountApp} femaleCountApp={this.state.femaleCountApp}/>
+              </div>
             </div>
-          </div>
-          <div className="row pagination">
-            <div className="pagination-list">
-              <ul>
-                <li><a onClick={this.pageNumberChange} href="#">Next Page</a></li>
-              </ul>
+            <div className="row">
+              <div className="col-xs-12 col-xs-offset-1 gallery-wrapper">
+                <Art term={this.state.searchTerm} pageNumber={this.state.pageNumber} passGenderCountMale={this.passGenderCountMale} passGenderCountFemale={this.passGenderCountFemale}/>
+              </div>
             </div>
-          </div>
-          <div className="row footer">
-            <div className="col-xs-12 footer-container col-xs-offset-1">
-              <Footer/>
+            <div className="row pagination">
+              <div className="pagination-list">
+                <ul>
+                  <li><a onClick={this.pageNumberChange} href="#">Next Page</a></li>
+                </ul>
+              </div>
+            </div>
+            <div className="row footer">
+              <div className="col-xs-12 footer-container col-xs-offset-1">
+                <Footer/>
+              </div>
             </div>
           </div>
         </div>

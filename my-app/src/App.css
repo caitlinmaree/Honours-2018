@@ -6448,3 +6448,213 @@ p.art-title {
 
 .intro-wrapper {
   width: 100%; }
+
+.app {
+  position: relative; }
+  .app:before {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 55px;
+    right: 0;
+    left: 0;
+    background: url("images/polygon.png");
+    background-size: cover;
+    width: 100%;
+    height: 100%;
+    background-repeat: no-repeat;
+    z-index: -1; }
+
+.index-list {
+  position: absolute;
+  top: 110px;
+  right: 0; }
+  .index-list ul {
+    list-style-type: none; }
+    .index-list ul li {
+      float: right;
+      clear: both; }
+    .index-list ul li a {
+      color: #ad6d68;
+      background: #203e4a;
+      display: block;
+      padding: 1rem;
+      margin-bottom: 10px;
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      transition: all ease 0.5s;
+      text-indent: -127px;
+      width: 70px;
+      height: 70px;
+      overflow: hidden;
+      line-height: 40px; }
+      .index-list ul li a span {
+        margin-right: 1rem; }
+      .index-list ul li a:hover, .index-list ul li a:focus, .index-list ul li a:active {
+        text-indent: 0;
+        color: white;
+        transition: all ease 0.3s;
+        text-decoration: none;
+        height: 70px;
+        width: 175px;
+        overflow: hidden; }
+        .index-list ul li a:hover span, .index-list ul li a:focus span, .index-list ul li a:active span {
+          margin-right: 0; }
+
+@keyframes slide-page-one {
+  0% {
+    transform: translateX(0);
+    opacity: 1; }
+  25% {
+    transform: translateX(100vw);
+    opacity: 0; }
+  50% {
+    transform: translateX(0);
+    opacity: 0; }
+  75% {
+    transform: translateX(-100vw);
+    opacity: 0; }
+  100% {
+    transform: translateX(0);
+    opacity: 1; } }
+
+@keyframes slide-page-two {
+  0% {
+    transform: translateX(0);
+    opacity: 1; }
+  25% {
+    transform: translateX(100vw);
+    opacity: 0; }
+  50% {
+    transform: translateX(0);
+    opacity: 0; }
+  75% {
+    transform: translateX(-100vw);
+    opacity: 0; }
+  100% {
+    transform: translateX(0);
+    opacity: 1; } }
+
+@keyframes slide-page-three {
+  0% {
+    transform: translateX(0);
+    opacity: 1; }
+  25% {
+    transform: translateX(100vw);
+    opacity: 0; }
+  50% {
+    transform: translateX(0);
+    opacity: 0; }
+  75% {
+    transform: translateX(-100vw);
+    opacity: 0; }
+  100% {
+    transform: translateX(0);
+    opacity: 1; } }
+
+@keyframes slide-page-four {
+  0% {
+    transform: translateX(0);
+    opacity: 1; }
+  25% {
+    transform: translateX(100vw);
+    opacity: 0; }
+  50% {
+    transform: translateX(0);
+    opacity: 0; }
+  75% {
+    transform: translateX(-100vw);
+    opacity: 0; }
+  100% {
+    transform: translateX(0);
+    opacity: 1; } }
+
+@keyframes slide-page-five {
+  0% {
+    transform: translateX(0);
+    opacity: 1; }
+  25% {
+    transform: translateX(100vw);
+    opacity: 0; }
+  50% {
+    transform: translateX(0);
+    opacity: 0; }
+  75% {
+    transform: translateX(-100vw);
+    opacity: 0; }
+  100% {
+    transform: translateX(0);
+    opacity: 1; } }
+
+#prototypezero .visualisation-wrapper {
+  display: none; }
+
+#prototypezero .gender {
+  height: 0;
+  overflow: hidden; }
+
+#prototypezero .art-title {
+  margin-top: 10px; }
+
+#prototypeOne > .container {
+  animation: slide-page-one 2s 1; }
+
+#prototypeOne .visualisation-wrapper {
+  display: none; }
+
+#prototypeOne .link-one {
+  text-indent: 0;
+  color: white;
+  height: 70px;
+  width: 175px;
+  overflow: hidden; }
+  #prototypeOne .link-one span {
+    margin-right: 0; }
+
+#prototypeTwo > .container {
+  animation: slide-page-two 2s 1; }
+
+#prototypeTwo .link-two {
+  text-indent: 0;
+  color: white;
+  height: 70px;
+  width: 175px;
+  overflow: hidden; }
+  #prototypeTwo .link-two span {
+    margin-right: 0; }
+
+#prototypeThree > .container {
+  animation: slide-page-three 2s 1; }
+
+#prototypeThree .link-three {
+  text-indent: 0;
+  color: white;
+  height: 70px;
+  width: 175px;
+  overflow: hidden; }
+  #prototypeThree .link-three span {
+    margin-right: 0; }
+
+#prototypeFour > .container {
+  animation: slide-page-four 2s 1; }
+
+#prototypeFour .link-four {
+  text-indent: 0;
+  color: white;
+  height: 70px;
+  width: 175px;
+  overflow: hidden; }
+  #prototypeFour .link-four span {
+    margin-right: 0; }
+
+#prototypeFive > .container {
+  animation: slide-page-five 2s 1; }
+
+#prototypeFive .link-five {
+  text-indent: 0;
+  color: white;
+  height: 70px;
+  width: 175px;
+  overflow: hidden; }
+  #prototypeFive .link-five span {
+    margin-right: 0; }

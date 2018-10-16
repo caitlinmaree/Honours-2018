@@ -154,18 +154,42 @@ p.art-title {
   }
 }
 
+//vis three bar graph
 .visualisation-wrapper {
   width: 100%;
   margin-bottom: 3rem;
 }
-.gender-count {
+.gender-count .vis-three {
   color: $pink;
   padding: 1rem;
-  border-right: 8px solid $gold;
+  //border-right: 8px solid $gold;
   width: 100%;
   //position: fixed;
   //top: 90px;
   //left: 0;
+  z-index: 9;
+  ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  h6 {
+    color: $pink;
+  }
+  .gender-label {
+    font-family: 'Playfair Display', serif;
+    color: $pink;
+  }
+}
+
+//vis two counter
+.gender-count .vis-two {
+  background: $purple;
+  color: $pink;
+  padding: 1rem;
+  border-right: 8px solid $gold;
+  position: fixed;
+  top: 90px;
+  left: 0;
   z-index: 9;
   ul {
     list-style-type: none;
@@ -353,6 +377,9 @@ p.art-title {
   }
 }
 #prototypeTwo  {
+  .vis-three {
+    display: none;
+  }
   > .container {
     animation: slide-page-two 2s 1;
   }
@@ -368,6 +395,9 @@ p.art-title {
   }
 }
 #prototypeThree {
+  .vis-two {
+    display: none;
+  }
   > .container {
     animation: slide-page-three 2s 1;
   }
@@ -383,6 +413,9 @@ p.art-title {
   }
 }
 #prototypeFour {
+  .visualisation-wrapper {
+    display: none;
+  }
   > .container {
     animation: slide-page-four 2s 1;
   }
@@ -396,8 +429,15 @@ p.art-title {
       margin-right: 0;
     }
   }
+  .art-gallery#undefined, .art-gallery#male, .art-gallery#unknown, .art-gallery#multi-gender, .art-gallery#unidentified {
+    opacity: 0.1;
+    filter: blur(4px);
+  }
 }
 #prototypeFive {
+  .visualisation-wrapper {
+    display: none;
+  }
   > .container {
     animation: slide-page-five 2s 1;
   }
@@ -410,5 +450,9 @@ p.art-title {
     span {
       margin-right: 0;
     }
+  }
+  .art-gallery#undefined, .art-gallery#male, .art-gallery#unknown, .art-gallery#multi-gender, .art-gallery#unidentified {
+    opacity: 0.1;
+    filter: blur(4px);
   }
 }

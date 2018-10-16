@@ -9,12 +9,22 @@ export class Visualisation extends React.Component {
     console.log('Female percent: ' + femalePercent + '%');
 
     return(
-      <div className="Gender-count">
-        <h6>Collection Gender Balance</h6>
-        <div class="progress">
-          <div data-tip="Male" class="progress-bar bar-male" role="progressbar" style={{ width: malePercent + '%' }} aria-valuenow="15" aria-valuemin="0" aria-valuemax="100"></div>
-          <div data-tip="Female" class="progress-bar bar-female" role="progressbar" style={{ width: femalePercent + '%' }} aria-valuenow="30" aria-valuemin="0" aria-valuemax="100"></div>
+      <div className="gender-count">
+        <div class="vis-two">
+          <h6>Collection Gender Count</h6>
+          <ul>
+            <li><span className="gender-label">Men: </span>{this.props.maleCountApp}</li>
+            <li><span className="gender-label">Women: </span>{this.props.femaleCountApp}</li>
+          </ul>
         </div>
+        <div class="vis-three">
+          <h6>Collection Gender Balance</h6>
+          <div class="progress">
+            <div data-tip="Male" class="progress-bar bar-male" role="progressbar" style={{ width: malePercent + '%' }} aria-valuenow="15" aria-valuemin="0" aria-valuemax="100"></div>
+            <div data-tip="Female" class="progress-bar bar-female" role="progressbar" style={{ width: femalePercent + '%' }} aria-valuenow="30" aria-valuemin="0" aria-valuemax="100"></div>
+          </div>
+        </div>
+
       </div>
     );
   }

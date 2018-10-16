@@ -47,7 +47,7 @@ export class Art extends React.Component {
         console.dir( data );
         that.setState( { records: data.records } );
         that.setState( { complete: 'loaded'});
-        console.log("CAITLIN!! LOADED");
+        //console.log("CAITLIN!! LOADED");
         var peopleArray = data.records.map(people => people.people);
         console.log(peopleArray);
         //console.log(peopleArray[0].gender);
@@ -81,7 +81,7 @@ export class Art extends React.Component {
 
       return ( this.state.records.map(item =>
         <div>
-          <div key={item.id} className="art-gallery" id={this.state.complete}>
+          <div key={item.id} className="art-gallery" id={getGender(item)}>
             <li className="content">
               <img alt="artwork" src={item.primaryimageurl+ '?height=500&width=500'}/>
               <h6 className="gender">Artist: {getGender(item)}</h6>
@@ -99,10 +99,14 @@ export class Art extends React.Component {
 
     function getGender( item ) {
       if (item.people!==undefined) {
+        if (item.people.length >= 2) {
+          console.log('array longer than 1');
+          return ("multi-gender");
+        }
         return item.people.map(p=>p.gender);
       }
       else {
-        return ("no gender");
+        return ("unidentified");
       }
     }
 

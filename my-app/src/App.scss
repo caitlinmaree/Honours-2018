@@ -24,7 +24,7 @@ body {
 
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Playfair Display', serif;
-  color: $redtwo;
+  color: $red;
 }
 p {
   font-family: 'Roboto', sans-serif;
@@ -37,10 +37,6 @@ p {
 }
 
 .gallery-wrapper {
-  // display: grid;
-  // grid-template-columns: repeat(auto-fill, minmax(300px,1fr));
-  // //grid-auto-rows: 20px;
-  // grid-gap: 10px;
   column-count: 3;
   column-gap: 30px;
   width: 100%;
@@ -238,7 +234,7 @@ p.art-title {
     color: $green;
   }
   h1 {
-    font-size: 5.5rem;
+    font-size: 6.5rem;
   }
   h2 {
     font-size: 3.5rem;
@@ -246,12 +242,29 @@ p.art-title {
   span {
     display: inline-block;
     //background-image: url('images/highlight.png');
-    background-size: 100%;
-    background-repeat: no-repeat;
-    padding-bottom: 1rem;
+    // background-size: 100%;
+    // background-repeat: no-repeat;
+    // padding-bottom: 1rem;
   }
   .explore {
     margin-top: -1rem;
+  }
+  @media screen and (max-width: 720px) {
+    padding: 0 2rem;
+    h1 {
+      font-size: 4.5rem;
+    }
+    h2 {
+      font-size: 2rem;
+    }
+  }
+  @media screen and (max-width: 580px) {
+    h1 {
+      font-size: 3.5rem;
+    }
+    h2 {
+      font-size: 2rem;
+    }
   }
 }
 
@@ -288,7 +301,7 @@ p.art-title {
       clear: both;
     }
     li a {
-      color: $purple-dark;
+      color: #ffd1d1;
       background: $green;
       display: block;
       padding: 1rem;
@@ -304,7 +317,7 @@ p.art-title {
       span {
         margin-right: 1rem;
       }
-      &:hover, &:focus, &:active {
+      &:hover {
         //padding: 1rem 3rem 1rem 1rem;
         text-indent: 0;
         color: white;
@@ -318,8 +331,22 @@ p.art-title {
         }
       }
     }
-    a:hover {
-
+  }
+  @media screen and (max-width: 580px) {
+    ul li a {
+      font-size: 14px;
+      padding: 10px;
+      height: 40px;
+      width: 40px;
+      text-indent: -80px;
+      line-height: 20px;
+      &:hover {
+        height: 40px;
+        width: 105px;
+        span {
+          margin-right: 0;
+        }
+      }
     }
   }
 }
@@ -374,6 +401,10 @@ p.art-title {
     span {
       margin-right: 0;
     }
+    @media screen and (max-width: 580px) {
+      height: 40px;
+      width: 105px;
+    }
   }
 }
 #prototypeTwo  {
@@ -391,6 +422,10 @@ p.art-title {
     overflow: hidden;
     span {
       margin-right: 0;
+    }
+    @media screen and (max-width: 580px) {
+      height: 40px;
+      width: 105px;
     }
   }
 }
@@ -410,6 +445,10 @@ p.art-title {
     span {
       margin-right: 0;
     }
+    @media screen and (max-width: 580px) {
+      height: 40px;
+      width: 105px;
+    }
   }
 }
 #prototypeFour {
@@ -428,6 +467,10 @@ p.art-title {
     span {
       margin-right: 0;
     }
+    @media screen and (max-width: 580px) {
+      height: 40px;
+      width: 105px;
+    }
   }
   .art-gallery#undefined, .art-gallery#male, .art-gallery#unknown, .art-gallery#multi-gender, .art-gallery#unidentified {
     opacity: 0.1;
@@ -441,6 +484,18 @@ p.art-title {
   > .container {
     animation: slide-page-five 2s 1;
   }
+  .gallery-wrapper {
+    column-count: 15;
+    column-gap: 0;
+    //grid-auto-rows: 300px;
+    .art-gallery {
+      padding: 10px;
+      list-style-type: none;
+    }
+  }
+  .art-title, .gender {
+    display: none;
+  }
   .link-five {
     text-indent: 0;
     color: white;
@@ -449,6 +504,10 @@ p.art-title {
     overflow: hidden;
     span {
       margin-right: 0;
+    }
+    @media screen and (max-width: 580px) {
+      height: 40px;
+      width: 105px;
     }
   }
   .art-gallery#undefined, .art-gallery#male, .art-gallery#unknown, .art-gallery#multi-gender, .art-gallery#unidentified {

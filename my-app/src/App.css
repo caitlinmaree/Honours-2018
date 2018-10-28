@@ -6288,7 +6288,7 @@ body {
 
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Playfair Display', serif;
-  color: #ea3d3d; }
+  color: #c70b1d; }
 
 p {
   font-family: 'Roboto', sans-serif; }
@@ -6452,16 +6452,25 @@ p.art-title {
   .intro-text h1, .intro-text h2 {
     color: #203e4a; }
   .intro-text h1 {
-    font-size: 5.5rem; }
+    font-size: 6.5rem; }
   .intro-text h2 {
     font-size: 3.5rem; }
   .intro-text span {
-    display: inline-block;
-    background-size: 100%;
-    background-repeat: no-repeat;
-    padding-bottom: 1rem; }
+    display: inline-block; }
   .intro-text .explore {
     margin-top: -1rem; }
+  @media screen and (max-width: 720px) {
+    .intro-text {
+      padding: 0 2rem; }
+      .intro-text h1 {
+        font-size: 4.5rem; }
+      .intro-text h2 {
+        font-size: 2rem; } }
+  @media screen and (max-width: 580px) {
+    .intro-text h1 {
+      font-size: 3.5rem; }
+    .intro-text h2 {
+      font-size: 2rem; } }
 
 .intro-wrapper {
   width: 100%; }
@@ -6492,7 +6501,7 @@ p.art-title {
       float: right;
       clear: both; }
     .index-list ul li a {
-      color: #ad6d68;
+      color: #ffd1d1;
       background: #203e4a;
       display: block;
       padding: 1rem;
@@ -6507,7 +6516,7 @@ p.art-title {
       line-height: 40px; }
       .index-list ul li a span {
         margin-right: 1rem; }
-      .index-list ul li a:hover, .index-list ul li a:focus, .index-list ul li a:active {
+      .index-list ul li a:hover {
         text-indent: 0;
         color: white;
         transition: all ease 0.3s;
@@ -6515,8 +6524,21 @@ p.art-title {
         height: 70px;
         width: 175px;
         overflow: hidden; }
-        .index-list ul li a:hover span, .index-list ul li a:focus span, .index-list ul li a:active span {
+        .index-list ul li a:hover span {
           margin-right: 0; }
+  @media screen and (max-width: 580px) {
+    .index-list ul li a {
+      font-size: 14px;
+      padding: 10px;
+      height: 40px;
+      width: 40px;
+      text-indent: -80px;
+      line-height: 20px; }
+      .index-list ul li a:hover {
+        height: 40px;
+        width: 105px; }
+        .index-list ul li a:hover span {
+          margin-right: 0; } }
 
 @keyframes slide-page-one {
   0% {
@@ -6627,6 +6649,10 @@ p.art-title {
   overflow: hidden; }
   #prototypeOne .link-one span {
     margin-right: 0; }
+  @media screen and (max-width: 580px) {
+    #prototypeOne .link-one {
+      height: 40px;
+      width: 105px; } }
 
 #prototypeTwo .vis-three {
   display: none; }
@@ -6642,6 +6668,10 @@ p.art-title {
   overflow: hidden; }
   #prototypeTwo .link-two span {
     margin-right: 0; }
+  @media screen and (max-width: 580px) {
+    #prototypeTwo .link-two {
+      height: 40px;
+      width: 105px; } }
 
 #prototypeThree .vis-two {
   display: none; }
@@ -6657,6 +6687,10 @@ p.art-title {
   overflow: hidden; }
   #prototypeThree .link-three span {
     margin-right: 0; }
+  @media screen and (max-width: 580px) {
+    #prototypeThree .link-three {
+      height: 40px;
+      width: 105px; } }
 
 #prototypeFour .visualisation-wrapper {
   display: none; }
@@ -6672,6 +6706,10 @@ p.art-title {
   overflow: hidden; }
   #prototypeFour .link-four span {
     margin-right: 0; }
+  @media screen and (max-width: 580px) {
+    #prototypeFour .link-four {
+      height: 40px;
+      width: 105px; } }
 
 #prototypeFour .art-gallery#undefined, #prototypeFour .art-gallery#male, #prototypeFour .art-gallery#unknown, #prototypeFour .art-gallery#multi-gender, #prototypeFour .art-gallery#unidentified {
   opacity: 0.1;
@@ -6683,6 +6721,16 @@ p.art-title {
 #prototypeFive > .container {
   animation: slide-page-five 2s 1; }
 
+#prototypeFive .gallery-wrapper {
+  column-count: 15;
+  column-gap: 0; }
+  #prototypeFive .gallery-wrapper .art-gallery {
+    padding: 10px;
+    list-style-type: none; }
+
+#prototypeFive .art-title, #prototypeFive .gender {
+  display: none; }
+
 #prototypeFive .link-five {
   text-indent: 0;
   color: white;
@@ -6691,6 +6739,10 @@ p.art-title {
   overflow: hidden; }
   #prototypeFive .link-five span {
     margin-right: 0; }
+  @media screen and (max-width: 580px) {
+    #prototypeFive .link-five {
+      height: 40px;
+      width: 105px; } }
 
 #prototypeFive .art-gallery#undefined, #prototypeFive .art-gallery#male, #prototypeFive .art-gallery#unknown, #prototypeFive .art-gallery#multi-gender, #prototypeFive .art-gallery#unidentified {
   opacity: 0.1;

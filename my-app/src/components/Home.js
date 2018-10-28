@@ -5,7 +5,7 @@ export class Home extends React.Component {
     return(
       <div className="intro-text">
         <h1>
-          Welcome, to Gender in the Arts.
+          Welcome, to Women in Art.
         </h1>
         <h2>A website to highlight <span>gender bias</span> in the Arts.</h2>
         <h2 className="explore">Explore...</h2>
